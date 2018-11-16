@@ -11,6 +11,7 @@
                     </p>
                     <div class="buttons text-center">
 <%= render 'ownerships/want_button', item: @item %>
+<%= render 'ownerships/have_button', item: @item %>
                     </div>
                 </div>
             </div>
@@ -35,6 +36,9 @@
                     Haveしたユーザ
                 </div>
                     <div class="panel-body">
+<% @have_users.each do |user| %>
+<%= link_to user.name, user_path(user) %>
+<% end %>
                     </div>
             </div>
         </div>
@@ -42,8 +46,6 @@
         </div>
     </div>
 </div>
-<p class="text-center">
-<%= link_to '楽天詳細ページ', @item.url, target: '_blank' %>
-</p>
+        <p class="text-center"><%= link_to '楽天詳細ページ', @item.url, target: '_blank' %></p>
 </div>
 </div>
